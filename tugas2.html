@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplikasi Cuaca</title>
+    <script>
+        
+        // Fungsi untuk menentukan kondisi cuaca berdasarkan suhu
+        function tentukanCuaca(suhu) {
+            if (suhu >= 30) {
+                return "Panas";
+            } else if (suhu >= 20) {
+                return "Hangat";
+            } else if (suhu >= 10) {
+                return "Sejuk";
+            } else {
+                return "Dingin";
+            }
+        }
+        
+        window.onload = function() {
+            // Array suhu yang di maksud soalnya
+            const suhuHarian = [32, 25, 18, 15, 10, 5, 0];
+            const cuacaDiv = document.getElementById("cuaca");
+
+            // Menampilkan hasil cuaca
+            suhuHarian.map((suhu, index) => {
+                const cuaca = tentukanCuaca(suhu);
+                cuacaDiv.innerHTML += `Hari ${index + 1}: ${suhu}°C - ${cuaca}<br>`;
+            });
+        };
+
+    </script>
+</head>
+<body>
+
+<h2>Aplikasi Cuaca Harian</h2>
+<div id="cuaca"></div>
+
+</body>
+</html>
